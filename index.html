@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro de Idiomas - Plataforma</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f7fb}
+header{background:#1a3a5c;color:white;padding:15px}
+.container{display:flex;flex-wrap:wrap}
+.sidebar{
+width:250px;
+background:#fff;
+min-height:100vh;
+border-right:1px solid #ddd;
+padding:15px
+}
+.sidebar button{
+display:block;
+width:100%;
+margin-bottom:10px;
+padding:10px;
+border:none;
+background:#eee;
+cursor:pointer;
+border-radius:8px;
+text-align:left
+}
+.sidebar button:hover{background:#1a3a5c;color:white}
+
+.content{
+flex:1;
+padding:20px
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.08)
+}
+
+.video{
+position:relative;
+padding-bottom:56.25%;
+height:0;
+margin-top:15px
+}
+
+.video iframe{
+position:absolute;
+width:100%;
+height:100%;
+left:0;
+top:0;
+border:none;
+border-radius:10px
+}
+
+.btn{
+background:#1a3a5c;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px
+}
+
+.btn:hover{
+opacity:0.9
+}
+
+@media(max-width:768px){
+.sidebar{
+width:100%;
+display:flex;
+overflow:auto
+}
+.sidebar button{
+flex:1;
+font-size:12px
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Centro de Idiomas - Plataforma Informativa</h2>
+</header>
+
+<div class="container">
+
+<div class="sidebar">
+<button onclick="loadSection('inicio')">🏠 Inicio</button>
+<button onclick="loadSection('aula')">💻 Aula Virtual</button>
+<button onclick="loadSection('clases')">🎥 Clases en Vivo</button>
+<button onclick="loadSection('canvas')">🗺️ Plataforma</button>
+<button onclick="loadSection('pdf')">📄 Recursos</button>
+<button onclick="loadSection('faq')">❓ FAQ</button>
+<button onclick="loadSection('ia')">🤖 Asistente IA</button>
+</div>
+
+<div class="content">
+<div id="app" class="card"></div>
+</div>
+
+</div>
+
+<script>
+
+const DATA = {
+
+inicio: `
+<h3>Bienvenido</h3>
+<p>Explora esta plataforma para conocer todo lo necesario sobre tu inicio de clases en el Centro de Idiomas.</p>
+<p>Selecciona una sección del menú para comenzar.</p>
+`,
+
+aula: `
+<h3>Aula Virtual</h3>
+<p>Aprende cómo ingresar correctamente a tu aula virtual.</p>
+
+<div class="video">
+<iframe src="https://grupoeducad-my.sharepoint.com/personal/jangulov_cientifica_edu_pe/_layouts/15/embed.aspx?UniqueId=f9759cce-0119-46a2-9c95-e96d8a86d177&embed=%7B%22ust%22%3Afalse%2C%22hv%22%3A%22CopyEmbedCode%22%7D" allowfullscreen></iframe>
+</div>
+`,
+
+clases: `
+<h3>Clases en Vivo</h3>
+<p>Conoce cómo conectarte a tus clases en línea.</p>
+
+<div class="video">
+<iframe src="https://grupoeducad-my.sharepoint.com/personal/jangulov_cientifica_edu_pe/_layouts/15/embed.aspx?UniqueId=b55d7027-9276-4c2c-9c2a-3d0d97a78fdf&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D" allowfullscreen></iframe>
+</div>
+`,
+
+canvas: `
+<h3>Recorrido de la Plataforma</h3>
+<p>Familiarízate con todas las herramientas disponibles.</p>
+
+<div class="video">
+<iframe src="https://grupoeducad-my.sharepoint.com/personal/jangulov_cientifica_edu_pe/_layouts/15/embed.aspx?UniqueId=ba210965-b07b-4451-b270-4b1fdbc3bcd0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D" allowfullscreen></iframe>
+</div>
+`,
+
+pdf: `
+<h3>Recursos</h3>
+<p>Aquí puedes acceder a documentos importantes:</p>
+
+<a href="TU_LINK_PDF_AQUI" target="_blank">
+<button class="btn">📄 Ver documento PDF</button>
+</a>
+`,
+
+faq: `
+<h3>Preguntas Frecuentes</h3>
+
+<p><strong>¿Cómo ingreso a mi aula virtual?</strong><br>
+Usa tu correo institucional y contraseña.</p>
+
+<p><strong>¿Dónde veo mis horarios?</strong><br>
+En la plataforma académica.</p>
+`,
+
+ia: `
+<h3>Asistente Virtual</h3>
+<p>Resuelve tus dudas en tiempo real con nuestro asistente:</p>
+
+<a href="https://chatgpt.com/g/g-680e7e97f7a0819185a738a6bb1534c8-cidioassist" target="_blank">
+<button class="btn">🤖 Abrir Asistente Virtual</button>
+</a>
+`
+
+};
+
+function loadSection(section){
+document.getElementById("app").innerHTML = DATA[section];
+}
+
+// carga inicial
+loadSection("inicio");
+
+</script>
+
+</body>
+</html>
