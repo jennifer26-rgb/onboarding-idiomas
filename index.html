@@ -189,12 +189,13 @@ ia: `
 function loadSection(section){
 document.getElementById("app").innerHTML = DATA[section];
 
-// tracking de secciones
+// tracking mejorado
 if (typeof gtag === 'function') {
   gtag('event', 'view_section', {
-  section_name: section,
-  page_title: section
-});
+    section_name: section,
+    page_title: section,
+    engagement_time_msec: 100
+  });
 }
 }
 
