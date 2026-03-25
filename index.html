@@ -192,8 +192,9 @@ document.getElementById("app").innerHTML = DATA[section];
 // tracking de secciones
 if (typeof gtag === 'function') {
   gtag('event', 'view_section', {
-    section_name: section
-  });
+  section_name: section,
+  page_title: section
+});
 }
 }
 
